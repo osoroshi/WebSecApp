@@ -1,0 +1,59 @@
+﻿@model Order
+    
+    <form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+        <h4>You're just one step away from a Secure Network.</h4>
+        <h5 style="float: left; width: 50%; color:red; ">Fill out below web form to order your TDL Security Service.</h5>
+        <h5 style="float: right; width: 50%; text-align: left; color:green;">[HTTPPOST]</h5>
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="FirstName" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastName" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label asp-for="CompanyName" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ProdCode" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="ProdCode" class="form-control" />
+                <span asp-validation-for="ProdCode" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-5">
+                <input type="submit" class="btn btn-primary" value="Complete order" />
+            </div>
+        </div>
+
+    </form>
