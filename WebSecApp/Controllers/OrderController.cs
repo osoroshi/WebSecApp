@@ -37,13 +37,18 @@ namespace WebSecApp.Controllers
             //{
             //    ModelState.AddModelError("", "Your cart is empty, add some pies first");
             //}
+       
+          
+
 
             if (ModelState.IsValid)
             {
                 _orderRepository.CreateOrder(order);
-              //  _shoppingCart.ClearCart();
+                //  _shoppingCart.ClearCart();
+               // return View(order);
                 return RedirectToAction("CheckoutComplete");
             }
+          //  return RedirectToAction("CheckoutComplete");
             return View(order);
         }
 
@@ -53,16 +58,54 @@ namespace WebSecApp.Controllers
             return View();
         }
 
-        public ViewResult OrdersList()
+        public IActionResult DeleteComplete()
         {
+            ViewBag.CheckoutCompleteMessage = "Order Deleted.";
+            return View();
+        }
 
+
+        public ViewResult OrdersList(Order order)
+        {
+            ViewData["id"] = order.OrderId;
             SecServiceOrderViewModel secserviceordersviewmodel = new SecServiceOrderViewModel();
             secserviceordersviewmodel.Orders = _orderRepository.AllOrders;
             return View(secserviceordersviewmodel);
 
         }
 
+        //  [HttpPost]
+        // RedirectToActionResult
+        public IActionResult DeleteOrder(int orderId)
+        {
+            //var items = _shoppingCart.GetShoppingCartItems();
+            //_shoppingCart.ShoppingCartItems = items;
 
+            //if (_shoppingCart.ShoppingCartItems.Count == 0)
+            //{
+            //    ModelState.AddModelError("", "Your cart is empty, add some pies first");
+            //}
+
+            var selectedOrder = _orderRepository.AllOrders.FirstOrDefault(p => p.OrderId == orderId);
+
+            if (selectedOrder != null)
+            {
+                _orderRepository.DeleteOrder(selectedOrder);
+                
+                return RedirectToAction("DeleteOrder");
+            }
+            return View();
+
+            //return RedirectToAction("DeleteComplete");
+
+            //if (ModelState.IsValid)
+            //{
+            //    _orderRepository.DeleteOrder(order);
+            //    //  _shoppingCart.ClearCart();
+            //    return RedirectToAction("DeleteOrder");
+            //}
+            //return View(order);
+        }
 
 
 

@@ -43,6 +43,19 @@ namespace WebSecApp.Models
             _appDbContext.SaveChanges();
         }
 
+
+        public void DeleteOrder(Order order)
+        {
+
+            _appDbContext.Orders.Remove(order);
+
+            _appDbContext.SaveChanges();
+
+
+        }
+
+
+
         public IEnumerable<Order> AllOrders
         {
             get

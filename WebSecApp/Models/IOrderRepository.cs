@@ -9,6 +9,7 @@ namespace WebSecApp.Models
     {
         void CreateOrder(Order order);
 
+        void DeleteOrder(Order order);
 
         IEnumerable<Order> AllOrders { get; }
 
