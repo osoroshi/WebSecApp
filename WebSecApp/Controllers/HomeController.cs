@@ -35,7 +35,7 @@ namespace WebSecApp.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Guide()
         {
             return View();
         }
