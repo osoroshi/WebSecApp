@@ -1,6 +1,6 @@
 ﻿@model WebSecApp.ViewModels.SecServiceListViewModel
 
-<h1 style="color:red;">The TDL List of Security Services</h1>
+<h1 style="color:red;">The TDL list of Security Services</h1>
 <!-- <hr>
  @foreach (var Secser in Model.SecServices)
 {
@@ -64,19 +64,28 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => Secser.projduration)
+                    <div class="text-center" style="float:right">
+                        <a class="btn btn-outline-info" asp-controller="Order" asp-action="Checkout" asp-route-id="@Secser.prodcode" style="float:right">Order</a>
+                    </div>
                 </td>
+                <!--    <td>
 
+                            <div class="text-center" style="float:left">
+                                <a class="btn btn-outline-info" asp-controller="Order" asp-action="Checkout" asp-route-id="@Secser.prodcode" style="float:left">Order</a>
+                            </div>
 
-            </tr>
-            }
+                        </td> 
+                -->
+                    </tr>
+                    }
 
-        </tbody>
-    </table>
-</div>
+                </tbody>
+            </table>
+        </div>
 
-<div class="text-center">
-    <a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Check out now!</a>
-</div>
+        <div class="text-center">
+            <a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Check out now!</a>
+        </div>
 
 
 

@@ -1,22 +1,39 @@
 ﻿@model Order
+ 
 
+    <form method="post" asp-action="DeleteOrder" class="form-horizontal" role="form">
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>Order Id</td>
+                <td>
+                    <input type="text" asp-for="OrderId" value="@ViewContext.RouteData.Values["id"]" />
 
-<form method="post" asp-action="DeleteOrder" class="form-horizontal" role="form">
-    <table cellpadding="2" cellspacing="2">
-        <tr>
-            <td>Order Id</td>
-            <td>
-                <input type="text" asp-for="OrderId" />
-            </td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>
-                <input type="submit" value="Delete" class="btn btn-danger" />
-            </td>
-        </tr>
-    </table>
-</form>
-<div class="text-center">
-    <button onclick="window.location.href='/order/OrdersList'" class="btn btn-outline-primary">Continue</button>
-</div>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+
+                </td>
+
+            </tr>
+        </table>
+    </form>
+    <div>
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                    <button onclick="window.location.href='/order/OrdersList'" class="btn btn-outline-primary" style="float: right;">Order List</button>
+                </td>
+            </tr>
+        </table>
+    </div>

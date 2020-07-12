@@ -60,7 +60,7 @@ namespace WebSecApp.Controllers
 
         public IActionResult DeleteComplete()
         {
-            ViewBag.CheckoutCompleteMessage = "Order Deleted.";
+            ViewBag.DeleteCompleteMessage = "Order Deleted.";
             return View();
         }
 
@@ -68,12 +68,14 @@ namespace WebSecApp.Controllers
         public ViewResult OrdersList(Order order)
         {
             ViewData["id"] = order.OrderId;
+            ViewBag.deleteid = order.OrderId;
             SecServiceOrderViewModel secserviceordersviewmodel = new SecServiceOrderViewModel();
             secserviceordersviewmodel.Orders = _orderRepository.AllOrders;
             return View(secserviceordersviewmodel);
 
         }
 
+        //[HttpGet]
         //  [HttpPost]
         // RedirectToActionResult
         public IActionResult DeleteOrder(int orderId)
@@ -91,8 +93,7 @@ namespace WebSecApp.Controllers
             if (selectedOrder != null)
             {
                 _orderRepository.DeleteOrder(selectedOrder);
-                
-                return RedirectToAction("DeleteOrder");
+                return RedirectToAction("DeleteComplete");
             }
             return View();
 

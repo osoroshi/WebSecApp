@@ -1,8 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Guide";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<p>
+    This Demo App simulates a typical .NET MVC app deployed in most organisations hosted on a Web Server typically IIS.
+</p>
+
+<p>  It performs typical Applciation actions such as HTTpGet, HTTpPost, Site Navigation, and SQL database queries returning datasets. </p>
+
+<p>
+    This Demo App will be Load balanced or Context switched by Citrix ADC appliance and WAF rules applied using positive security model.
+    The positive security model defines the traffic patterns and user behaviors that are allowed and blocks everything else.
+    Dynamic profiling is used by the WAF engine to build rule sets for the behavior that is acceptable.
+</p>
+<img src="~/images/poc-guides_citrix-waf-deployment_23.png" align="middle" width="600" height="110">
+<p>
+    This Demo can also be used to simulate applying WAF rules in a production context.
+    During the WAF PoC deployment we do NOT want to disrupt the application functionality or availability for existing users.
+    To accomplish this, a duplicate virtual server is made with the only difference being that the duplicate virtual server has WAF policies bound to it.
+</p>
+
+
 
 <img style="border:2px solid red;" src="~/images/protect.jpg" align="middle" width="500" height="300">

